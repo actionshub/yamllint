@@ -1,6 +1,6 @@
-name: 'yaml-lint'
+name: 'YAML Lint Action'
 author: 'Jason Field'
-description: 'Run mdl on your yaml files with ease'
+description: 'Run yamllint on your yaml files with ease'
 runs:
   using: 'docker'
   image: 'Dockerfile'
