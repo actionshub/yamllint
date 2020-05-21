@@ -1,4 +1,4 @@
-# Markdown Lint
+# Yaml Lint
 
 [![CI State](https://github.com/actionshub/yamllint/workflows/release/badge.svg)](https://github.com/actionshub/yamllint)
 
