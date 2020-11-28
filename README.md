@@ -18,7 +18,7 @@ jobs:
 
     steps:
     - name: Check out code
-      uses: actions/checkout@master
+      uses: actions/checkout@main
     - name: Run yamllint
-      uses: actionshub/yamllint@master
+      uses: actionshub/yamllint@main
 ```
