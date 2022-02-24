@@ -6,13 +6,9 @@ name: Test container builds
 
 jobs:
   build:
-    name: Publish to GitHub Container Registry
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Get the tag version
-        id: get_tag
-        run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
-
       - name: Code checkout
         uses: actions/checkout@v2
 
@@ -23,5 +19,4 @@ jobs:
           platforms: linux/amd64
           push: false
           tags: |
-            ghcr.io/${{ github.repository }}:${{ steps.get_tag.outputs.VERSION }}
-            ghcr.io/${{ github.repository }}:latest
+            ghcr.io/${{ github.repository }}:edge
