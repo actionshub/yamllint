@@ -1,9 +1,10 @@
+---
 name: 'YAML Lint Action'
 author: 'Jason Field'
 description: 'Run yamllint on your yaml files with ease'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: docker://ghcr.io/actionshub/yamllint:1.0.1
 branding:
   icon: 'edit-3'
   color: 'red'
