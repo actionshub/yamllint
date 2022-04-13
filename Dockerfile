@@ -1,4 +1,4 @@
-FROM python
+FROM python:slim
 
 RUN pip install yamllint
 ENV MATCHERS_DIR="._actionshub_problem-matchers"
