@@ -4,7 +4,7 @@ author: 'Jason Field'
 description: 'Run yamllint on your yaml files with ease'
 runs:
   using: 'docker'
-  image: docker://ghcr.io/actionshub/yamllint:1.0.1
+  image: docker://ghcr.io/actionshub/yamllint:1.0.2
 branding:
   icon: 'edit-3'
   color: 'red'
