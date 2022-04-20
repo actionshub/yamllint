@@ -1,11 +1,14 @@
 FROM python:slim
 
-RUN pip install yamllint
-ENV MATCHERS_DIR="._actionshub_problem-matchers"
-ENV MATCHER_FILE="${MATCHERS_DIR}/yamllint.json"
+LABEL org.opencontainers.image.description \
+  "Yamllint Action for GitHub Actions"
 
-RUN mkdir -p ${MATCHERS_DIR}
+ENV MATCHERS_DIR="._actionshub_problem-matchers" \
+  MATCHER_FILE="${MATCHERS_DIR}/yamllint.json"
+
 COPY yamllint.json ${MATCHER_FILE}
-RUN echo "::[add-matcher]${MATCHER_FILE}"
+RUN pip install yamllint \
+  && mkdir -p ${MATCHERS_DIR} \
+  && echo "::[add-matcher]${MATCHER_FILE}"
 
 ENTRYPOINT ["yamllint",".", "--format", "github"]
