@@ -1,7 +1,11 @@
 FROM python:slim
 
 LABEL org.opencontainers.image.description \
-  "Yamllint Action for GitHub Actions"
+  "Yamllint Action for GitHub Actions" \
+  org.opencontainers.image.url \
+  "https://github.com/actionshub/yamllint" \
+  org.opencontainers.image.authors \
+  "https://github.com/actionshub"
 
 ENV MATCHERS_DIR="._actionshub_problem-matchers" \
   MATCHER_FILE="${MATCHERS_DIR}/yamllint.json"
