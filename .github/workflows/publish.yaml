@@ -1,14 +1,19 @@
 ---
-name: Publish container
+name: Build & Publish container
 'on':
   push:
-    # We need to do this on tags instead of releases, as before we cut the release the docker image should exist. 
-    # this will become more complex over time however ...
-    tags:
-      - v**
+    tags: [v**]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to set'
+        required: true
+        type: string
+
 jobs:
-  push_to_registry:
-    name: Publish to GitHub Container Registry
+  build_and_publish:
+    name: Build & Publish to GitHub Container Registry
     runs-on: ubuntu-latest
     permissions:
       packages: write
