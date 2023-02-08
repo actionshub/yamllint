@@ -20,5 +20,5 @@ jobs:
     - name: Check out code
       uses: actions/checkout@master
     - name: Run yamllint
-      uses: actionshub/yamllint@master
+      uses: actionshub/yamllint@main
 ```

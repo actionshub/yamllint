@@ -1,8 +1,11 @@
 ---
 name: Publish container
 'on':
-  release:
-    types: [published]
+  push:
+    # We need to do this on tags instead of releases, as before we cut the release the docker image should exist. 
+    # this will become more complex over time however ...
+    tags:
+      - v**
 jobs:
   push_to_registry:
     name: Publish to GitHub Container Registry
@@ -44,7 +47,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v4
         with:
           context: .
           platforms: linux/amd64,linux/arm64

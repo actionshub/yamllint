@@ -1,13 +1,19 @@
 ---
-name: Test container builds
-
+name: Publish container Manually
 'on':
-  pull_request:
-
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to set'
+        required: true
+        type: string
 jobs:
-  build:
-    name: Build
+  push_to_registry:
+    name: Publish to GitHub Container Registry
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
     steps:
       - name: Code checkout
         uses: actions/checkout@v3
@@ -33,4 +39,6 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/${{ github.repository }}:edge
+          tags: |
+            ghcr.io/${{ github.repository }}:${{ inputs.tag }}
+            ghcr.io/${{ github.repository }}:latest
