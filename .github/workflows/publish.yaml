@@ -16,9 +16,6 @@ jobs:
   build_and_publish:
     name: Build & Publish to GitHub Container Registry
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
     steps:
       - name: Code checkout
         uses: actions/checkout@v3
