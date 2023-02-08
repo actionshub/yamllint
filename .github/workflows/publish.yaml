@@ -7,9 +7,6 @@ name: Build & Publish container
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      packages: write
-      contents: read
     steps:
       - name: Bump version and push tag
         id: tag_version
