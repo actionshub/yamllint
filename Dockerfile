@@ -1,17 +1,10 @@
-FROM python:slim
-
-LABEL org.opencontainers.image.description \
-  "Yamllint Action for GitHub Actions" \
-  org.opencontainers.image.url \
-  "https://github.com/actionshub/yamllint" \
-  org.opencontainers.image.authors \
-  "https://github.com/actionshub"
+FROM python:3.10-slim
 
 ENV MATCHERS_DIR="._actionshub_problem-matchers" \
   MATCHER_FILE="${MATCHERS_DIR}/yamllint.json"
 
 COPY yamllint.json ${MATCHER_FILE}
-RUN pip install yamllint \
+RUN pip install yamllint==v1.29.0 \
   && mkdir -p ${MATCHERS_DIR} \
   && echo "::[add-matcher]${MATCHER_FILE}"
 
