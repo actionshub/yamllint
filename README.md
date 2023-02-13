@@ -7,15 +7,12 @@ A Github Action to run yamllint on your files
 ## Usage
 
 ```yaml
+---
 name: yamllint
-
-on: [push, pull_request]
-
+"on": [push, pull_request]
 jobs:
   delivery:
-
     runs-on: ubuntu-latest
-
     steps:
     - name: Check out code
       uses: actions/checkout@master
