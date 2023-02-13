@@ -5,5 +5,5 @@ name: Build & Publish container
     branches: [main]
 
 jobs:
-  pull_request:
+  publish:
     uses: actionshub/reusable-workflows/.github/workflows/publish.yaml@f72b4965de569759f8927de3c639b063f8cde0cd
