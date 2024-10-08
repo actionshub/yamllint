@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.13-slim
 
 ENV MATCHERS_DIR="._actionshub_problem-matchers" \
   MATCHER_FILE="${MATCHERS_DIR}/yamllint.json"
